@@ -30,8 +30,10 @@ const Carousel = ({id, media_type}) => {
         </div>
     ));
 
+    const apiKey = process.env.REACT_APP_API_KEY;
+
     const fetchCredits = async () => {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
+        const { data } = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${apiKey}&language=en-US`);
         
         setCredits(data.cast);
     }

@@ -3,8 +3,10 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 
 const Genres = ({type, genres, setGenres, selectedGenres, setSelectedGenres, setPage}) => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+
     const fetchGenres = async () => {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
+        const { data } = await axios.get(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${apiKey}&language=en-US`)
         
         setGenres(data.genres);
     }

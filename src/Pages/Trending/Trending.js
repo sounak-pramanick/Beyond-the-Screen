@@ -7,10 +7,12 @@ import WhatshotIcon from '@mui/icons-material/Whatshot';
 
 const Trending = () => {
   const [content, setContent] = useState([]);
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1);
+
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const fetchTrending = async () => {
-    const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`);
+    const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&page=${page}`);
 
     // console.log(data);
     setContent(data.results);
